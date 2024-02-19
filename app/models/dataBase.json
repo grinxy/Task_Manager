@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "description": "Sprint 3",
+        "author": "Monica",
+        "creationDate": "2024-02-19",
+        "status": "in process",
+        "deadline": "2024-02-29"
+    },
+    {
+        "id": "2",
+        "description": "Limpiar fotocopiadora",
+        "author": "Juanjo",
+        "creationDate": "2024-02-19",
+        "status": "in process",
+        "deadline": "2024-02-29"
+    }
+]

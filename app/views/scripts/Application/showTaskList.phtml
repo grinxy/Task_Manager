@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+	
+    <title>To-Do List</title>
+</head>
+
+<body>
+
+    <div class="container mx-auto mt-8 p-4">
+        <h1 class="text-2xl font-bold mb-4">Task List</h1>
+
+        <?php var_dump($this->allTasks); 
+		if (!empty($this->allTasks)) : ?>
+            <ul>
+                <?php 
+				foreach ($this->allTasks as $task) : ?>
+                    <li class="bg-white shadow-md p-4 mb-4">
+						<strong>Task ID:</strong> <?php echo $task['id']; ?><br>
+                        <strong>Description:</strong> <?php echo $task['description']; ?><br>
+						<strong>Author:</strong> <?php echo $task['author']; ?><br>
+                        <strong>Creation Date:</strong> <?php echo $task['creationDate']; ?><br>
+						<strong>Status:</strong> <?php echo $task['status']; ?><br>
+						<strong>Deadline:</strong> <?php echo $task['deadline']; ?><br>
+					
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else : ?>
+            <p class="text-red-600">No tasks available</p>
+        <?php endif; ?>
+    </div>
+
+</body>
+
+</html>
+

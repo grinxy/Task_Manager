@@ -7,11 +7,12 @@ require_once(__DIR__ ."/../models/TaskModel.php");
 class ApplicationController extends Controller 
 {
 	
-    public function showTaskListAction(){
+    public function indexAction(){
         $taskModel = new TaskModel();
         $taskModel->listTasks();
         $tasks = $taskModel->getTasks();
         $this->view->allTasks = $tasks;
-        print_r($tasks);
+     
       }
+
 }

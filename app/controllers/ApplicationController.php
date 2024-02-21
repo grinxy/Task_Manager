@@ -15,4 +15,17 @@ class ApplicationController extends Controller
      
       }
 
+      public function createTaskAction(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //recoger los datos introducidos en formulario de nueva tarea
+        $description = $_POST["description"];
+        $author = $_POST["author"];
+        $status = $_POST["status"];
+        $creationDate = date_create()->format('Y-m-d');
+        $deadline = $_POST["deadline"]->format('Y-m-d');
+
+      }
+    }
+
+
 }

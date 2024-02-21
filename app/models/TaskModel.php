@@ -24,6 +24,14 @@ class TaskModel
         return $this->tasks;
     }    
 
+    public function createTask(array $newTask): void
+    {
+        $this->listTasks();
+        $this->tasks[] = $newTask;
+        $jsonFile = json_encode($newTask, JSON_PRETTY_PRINT);
+        file_put_contents($this->jsonFile, $jsonFile);
+
+    }
 }
 
 ?>

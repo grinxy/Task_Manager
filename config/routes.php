@@ -11,11 +11,9 @@
  */
 $routes = array(
 
-	'/' => 'Application#index', 
-	/* 
-	 '/' => 'Application#index', --> o directamente showTaskList
-    '/createTask' => 'Application#createTask',
-    '/updateTask' => 'Application#updateTask',
+	'/' => 'Application#index',  //pantalla inicio --> read
+	'/createTask' => 'Application#createTask',
+   /* '/updateTask' => 'Application#updateTask',
     '/deleteTask' => 'Application#deleteTask',
     */
 	

@@ -21,7 +21,6 @@ class ApplicationController extends Controller
         $this->taskModel->listTasks();
         $tasks = $this->taskModel->listTasks();
         $this->view->allTasks = $tasks;
-
     }
 
     public function createTaskAction()
@@ -62,6 +61,7 @@ class ApplicationController extends Controller
 
         $this->view->createTaskOK;
     }
+
 }
 
 

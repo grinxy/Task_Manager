@@ -39,6 +39,7 @@ class TaskModel
         $lastTask = end($this->tasks);   //coger ultimo objeto que hay en el array
         $newID = ++$lastTask["id"];     // incrementar numero id
         return $newID;
+
     }
 }
 

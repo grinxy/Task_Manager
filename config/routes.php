@@ -12,6 +12,8 @@
 $routes = array(
 
 	'/' => 'Application#index', 
+	'/createTask' => 'Application#createTask',
+	'/createTaskOK' => 'Application#createTaskOK',
 	/* 
 	 '/' => 'Application#index', --> o directamente showTaskList
     '/createTask' => 'Application#createTask',

@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
-    <title>To-Do List</title>
+
+    <title>Create Task</title>
+
 </head>
 
 <body>
 
-<h1 class="flex justify-center pt-12 items-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-white">New Task</h1>
+
+<h1 class="flex justify-center pt-12 items-center mb-4 text-4xl font-extrabold 
+leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-white">New Task</h1>
 <form action ="createTask" method = "post">  
-</a>
+
 
     <div class="w-full md:w-4/5 md:max-w-full mx-auto">
         <div class="p-12 border bg-red-200 border-gray-500 sm:rounded-md">
@@ -85,7 +89,9 @@
                                     d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                             </svg>
                         </div>
-                        <input datepicker datepicker-buttons datepicker-autoselect-today type="text" name="deadline"
+
+                     <input type="date" name="deadline" 
+
                             class="
                             block
                             w-full
@@ -98,11 +104,13 @@
                             focus:ring
                             focus:ring-indigo-200
                             focus:ring-opacity-50"
-                            placeholder="Select date">
+
+                            placeholder="Select date" required>
                     </div>
                 </label>
                 <div class="mb-6 flex justify-center items-center ">
-                    <button type="submit" 
+                <button type="submit" 
+
                     class="
                     h-20
                     px-20
@@ -114,7 +122,10 @@
                     focus:shadow-outline
                     hover:bg-red-300
                     ">
-                        Create
+
+                   Create
+                 
+
                     </button>
                 </div>
 

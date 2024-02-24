@@ -2,7 +2,7 @@
 class TaskModel
 {
 
-   protected array $tasks;
+    protected array $tasks;
     protected $jsonFile;
     protected int $id;
 
@@ -10,9 +10,9 @@ class TaskModel
     {
         $this->jsonFile = __DIR__ . "/dataBase.json";
         $this->tasks = [];
-        $this->id = $this->getID();
-      
-     
+        $this->id = $this->generateID();
+
+
     }
 
 
@@ -33,7 +33,7 @@ class TaskModel
         file_put_contents($this->jsonFile, $jsonFile);
 
     }
-    public function getID(): int
+    public function generateID(): int
     {
         $this->listTasks();
         $lastTask = end($this->tasks);   //coger ultimo objeto que hay en el array
@@ -41,6 +41,8 @@ class TaskModel
         return $newID;
 
     }
+   
 }
+
 
 ?>

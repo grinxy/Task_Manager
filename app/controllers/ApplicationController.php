@@ -20,10 +20,10 @@ class ApplicationController extends Controller
 
         $this->taskModel->listTasks();
         $tasks = $this->taskModel->listTasks();
-        $this->view->allTasks = $tasks;
+        $this->view->allTasks = $tasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
     }
 
-    public function createTaskAction()
+    public function createTaskAction(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //recoger los datos introducidos en formulario de nueva tarea
@@ -35,7 +35,7 @@ class ApplicationController extends Controller
 
 
             $newTask = [
-                'id' => $this->taskModel->getID(),
+                'id' => $this->taskModel->generateID(),
                 'description' => $description,
                 'author' => $author,
                 'creationDate' => $creationDate,
@@ -45,7 +45,7 @@ class ApplicationController extends Controller
 
 
             $this->taskModel->createTask($newTask);
-            header("Location: " . $this->_baseUrl() . "/createTaskOK");  //_baseURl clase Controller --> WEB_ROOTt
+            header("Location: " . $this->_baseUrl() . "/createTaskOK");  //_baseURl clase Controller --> WEB_ROOT
             exit();
         }
 
@@ -54,15 +54,12 @@ class ApplicationController extends Controller
 
     public function createTaskOKAction(): void
     {
-
-        $this->taskModel->listTasks();
-        $tasks = $this->taskModel->listTasks();
-        $this->view->allTasks = $tasks;
-
         $this->view->createTaskOK;
     }
 
+
+    
+
+
+
 }
-
-
-

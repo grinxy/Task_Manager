@@ -14,7 +14,9 @@ $routes = array(
 	'/' => 'Application#index',  //pantalla inicio --> read
 	'/createTask' => 'Application#createTask',
 	'/createTaskOK' => 'Application#createTaskOK',
-   /* '/updateTask' => 'Application#updateTask',
+  '/updateTask' => 'Application#updateTask',
+  '/updateTaskOK' => 'Application#updateTaskOK',
+  /*
      '/deleteTask' => 'Application#deleteTask',
     */
 	

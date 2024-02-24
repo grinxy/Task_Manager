@@ -18,7 +18,6 @@ class ApplicationController extends Controller
     public function indexAction()
     {
 
-        $this->taskModel->listTasks();
         $tasks = $this->taskModel->listTasks();
         $this->view->allTasks = $tasks;
 

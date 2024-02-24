@@ -19,7 +19,8 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
 
       
             <div class="p-12 border bg-red-200 border-gray-500 sm:rounded-md">
-                <form method="POST" action="updateTask">
+                <form action="updateTaskData" method="post" >
+                <input type="hidden" name="id" value="<?php echo $this->taskData['id']; ?>">
                     <label class="block mb-6">
                         <span class="text-gray-700">Task Description</span>
                         <input type="text" name="description" class="
@@ -52,6 +53,7 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
                     focus:ring-opacity-50" value="<?php echo $this->taskData['author']; ?>" required />
 
                     </label>
+                    <input type="hidden" name="creationDate" value="<?php echo $this->taskData['creationDate']; ?>">
                     <label class="block mb-6">
                         <span class="text-gray-700">Task Status</span>
                         <select text="status" name="status" class="

@@ -18,9 +18,8 @@ class ApplicationController extends Controller
     public function indexAction()
     {
 
-        $this->taskModel->listTasks();
-        $tasks = $this->taskModel->listTasks();
-        $this->view->allTasks = $tasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
+        $allTasks = $this->taskModel->listTasks();
+        $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
     }
 
     public function createTaskAction(): void

@@ -4,7 +4,7 @@
         "description": "Limpiar fotocopiadora",
         "author": "Juanjo",
         "creationDate": "2024-02-19",
-        "status": "in process",
+        "status": "finalized",
         "deadline": "2024-02-29"
     },
     {
@@ -12,13 +12,13 @@
         "description": "Recoger pedidos",
         "author": "Diego",
         "creationDate": "2024-02-15",
-        "status": "finalized",
+        "status": "in process",
         "deadline": "2024-02-19"
     },
     {
         "id": 4,
         "description": "Hola",
-        "author": "hola",
+        "author": "caracolilla",
         "creationDate": "2024-02-23",
         "status": "initialized",
         "deadline": "2024-02-25"
@@ -34,15 +34,15 @@
     {
         "id": 6,
         "description": "pruebas",
-        "author": "perubas",
+        "author": "PRUEBAS",
         "creationDate": "2024-02-23",
-        "status": "initialized",
+        "status": "finalized",
         "deadline": "2024-02-11"
     },
     {
         "id": 7,
-        "description": "asrgahyasfyj",
-        "author": "yjgvkmfcvhki",
+        "description": "Por fin",
+        "author": "OTRO",
         "creationDate": "2024-02-23",
         "status": "initialized",
         "deadline": "2024-02-03"

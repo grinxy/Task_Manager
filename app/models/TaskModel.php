@@ -60,7 +60,7 @@ class TaskModel
 
     public function updateTask(int $taskId, array $updatedTask): void
     {
-        var_dump($updatedTask);
+      
         $taskList = $this->listTasks();
         foreach ($taskList as $index => $task) {
             if ($taskId === $task["id"]) {

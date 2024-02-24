@@ -58,43 +58,40 @@ class ApplicationController extends Controller
         $this->view->createTaskOK;
     }
 
-    
+
     public function updateTaskAction(): void
     {
         $taskId = ((int) $this->_getParam('id'));
 
         $taskData = $this->taskModel->getTaskData($taskId);
+     
+        $this->view->taskData = $taskData;  
 
-        $this->view->taskData = $taskData;
+    }
     
-        var_dump($taskData);
+    public function updateTaskDataAction(): void
+    {
 
-        //include(ROOT_PATH . '/app/views/scripts/Application/updateTask.phtml');
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     
             $updatedTask = [
-                'id' => $taskData["id"],
+                'id' => ((int)$this->_getParam("id")), 
                 'description' => $this->_getParam("description"),
                 'author' => $this->_getParam("author"),
-                'creationDate' => $taskData["creationDate"],
+                'creationDate' => $this->_getParam("creationDate"),
                 'status' => $this->_getParam("status"),
                 'deadline' => date_create($_POST["deadline"])->format('Y-m-d')
             ];
-            var_dump($updatedTask);
+           
+       
+            $this->taskModel->updateTask($updatedTask['id'], $updatedTask);
+           
 
-            $this->taskModel->updateTask($taskId, $updatedTask);
-            header("Location: " . $this->_baseUrl() . "/updateTaskOK");
-            exit();
         }
     }
-    public function updateTaskOKAction(): void
-    {
-    
-        $this->view->updateTaskOK;
-    }
-
+ 
 }
 
 
 
 
-}

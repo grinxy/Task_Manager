@@ -13,6 +13,7 @@ class TaskModel
         $this->id = $this->generateID();
 
 
+
     }
 
 
@@ -41,7 +42,41 @@ class TaskModel
         return $newID;
 
     }
-   
+
+    public function getTaskData(int $taskId): array
+    {
+        $taskList = $this->listTasks();
+
+        foreach ($taskList as $task) {
+            if ($taskId === $task["id"]) {
+                return $task;
+            }
+        }
+
+        return [];
+    }
+
+
+
+    public function updateTask(int $taskId, array $updatedTask): void
+    {
+        var_dump($updatedTask);
+        $taskList = $this->listTasks();
+        foreach ($taskList as $index => $task) {
+            if ($taskId === $task["id"]) {
+                $taskIndex = $index;
+                $this->tasks[$taskIndex] = $updatedTask;
+            }
+
+            $jsonFile = json_encode($this->tasks, JSON_PRETTY_PRINT);
+            file_put_contents($this->jsonFile, $jsonFile);
+
+
+        }
+
+    }
+
+
 }
 
 

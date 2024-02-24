@@ -18,8 +18,10 @@ class ApplicationController extends Controller
     public function indexAction()
     {
 
+
         $allTasks = $this->taskModel->listTasks();
         $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
+
     }
 
     public function createTaskAction(): void
@@ -56,8 +58,42 @@ class ApplicationController extends Controller
         $this->view->createTaskOK;
     }
 
-
     
+    public function updateTaskAction(): void
+    {
+        $taskId = ((int) $this->_getParam('id'));
+
+        $taskData = $this->taskModel->getTaskData($taskId);
+
+        $this->view->taskData = $taskData;
+    
+        var_dump($taskData);
+
+        //include(ROOT_PATH . '/app/views/scripts/Application/updateTask.phtml');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $updatedTask = [
+                'id' => $taskData["id"],
+                'description' => $this->_getParam("description"),
+                'author' => $this->_getParam("author"),
+                'creationDate' => $taskData["creationDate"],
+                'status' => $this->_getParam("status"),
+                'deadline' => date_create($_POST["deadline"])->format('Y-m-d')
+            ];
+            var_dump($updatedTask);
+
+            $this->taskModel->updateTask($taskId, $updatedTask);
+            header("Location: " . $this->_baseUrl() . "/updateTaskOK");
+            exit();
+        }
+    }
+    public function updateTaskOKAction(): void
+    {
+    
+        $this->view->updateTaskOK;
+    }
+
+}
+
 
 
 

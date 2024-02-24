@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Task Addition Sucess</title>
+</head>
+
+<body>
+
+<div class="w-full md:w-4/5 md:max-w-full mx-auto">
+        <div class="m-20 p-12 border bg-red-200 border-gray-500 sm:rounded-md">
+        <h1 class="flex justify-center pt-12 items-center mb-4 text-4xl font-extrabold 
+        leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-white">Task Updated</h1>
+
+        <div class="flex justify-center items-center  p-10 flex flex-col space-y-3">
+            <div class="bg-white p-5 w-full sm:w-1/2 border-l-4 border-blue-500">
+                <div class="flex space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        class="flex-none fill-current text-blue-500 h-4 w-4">
+                        <path
+                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z" />
+                    </svg>
+                    <div class="flex-1 leading-tight text-x2 text-blue-700">Your task was updated successfully!</div>
+                </div>
+            </div>
+
+
+            <div class="lex justify-center flex content-end p-8">
+                <a href="<?php echo WEB_ROOT; ?>" class="inline-block px-12 py-6 border border-transparent text-sm leading-5 font-medium 
+                    rounded-md text-white bg-red-400 hover:bg-red-300 focus:outline-none focus:shadow-outline">
+                    Go Back to List
+                </a>
+            </div>
+            </a>
+        </div>
+    </div>

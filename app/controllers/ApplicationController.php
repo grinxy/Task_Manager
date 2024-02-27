@@ -21,7 +21,7 @@ class ApplicationController extends Controller
         
         $allTasks = $this->taskModel->listTasks();
         $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
-        var_dump($allTasks);
+    
     }
 
     public function createTaskAction(): void

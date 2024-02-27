@@ -18,10 +18,10 @@ class ApplicationController extends Controller
     public function indexAction()
     {
 
-
+        
         $allTasks = $this->taskModel->listTasks();
         $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
-
+    
     }
 
     public function createTaskAction(): void
@@ -64,32 +64,40 @@ class ApplicationController extends Controller
         $taskId = ((int) $this->_getParam('id'));
 
         $taskData = $this->taskModel->getTaskData($taskId);
-     
-        $this->view->taskData = $taskData;  
+
+        $this->view->taskData = $taskData;
 
     }
-    
+
     public function updateTaskDataAction(): void
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-     
+
             $updatedTask = [
-                'id' => ((int)$this->_getParam("id")), 
+                'id' => ((int) $this->_getParam("id")),
                 'description' => $this->_getParam("description"),
                 'author' => $this->_getParam("author"),
                 'creationDate' => $this->_getParam("creationDate"),
                 'status' => $this->_getParam("status"),
                 'deadline' => date_create($_POST["deadline"])->format('Y-m-d')
             ];
-           
-       
+
+
             $this->taskModel->updateTask($updatedTask['id'], $updatedTask);
-           
+
 
         }
     }
- 
+    public function deleteTaskAction(): void
+    {
+        $taskId = ((int) $this->_getParam('id'));
+        $this->taskModel->deleteTask($taskId);
+      
+        header("Location: " . $this->_baseUrl());
+        exit();
+        
+    }
 }
 
 

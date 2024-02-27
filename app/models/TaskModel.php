@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-class TaskModel
+class TaskModel extends Model
 {
 
     protected array $tasks;
@@ -38,7 +38,7 @@ class TaskModel
     {
         $this->listTasks();
         $lastTask = end($this->tasks);   //coger ultimo objeto que hay en el array
-        $newID = ++$lastTask["id"];     // incrementar numero id
+        $newID = ($lastTask == null)? 1 : ++$lastTask["id"];     // incrementar numero id
         return $newID;
 
     }
@@ -60,7 +60,7 @@ class TaskModel
 
     public function updateTask(int $taskId, array $updatedTask): void
     {
-      
+
         $taskList = $this->listTasks();
         foreach ($taskList as $index => $task) {
             if ($taskId === $task["id"]) {
@@ -76,8 +76,21 @@ class TaskModel
 
     }
 
+    public function deleteTask(int $taskId): void
+    {
+        $taskList = $this->listTasks();
+        foreach ($taskList as $index => $task) {
+            if ($taskId === $task["id"]) {
+                unset($taskList[$index]);
+            }
+            
+        }
+        $this->tasks = array_values($taskList);   // reindexar los elementos del array --> unset borra indice y no reordena
+        $jsonFile = json_encode($this->tasks, JSON_PRETTY_PRINT);
+        file_put_contents($this->jsonFile, $jsonFile);
+        $taskList = $this->listTasks();
 
-}
-
+    }
+} 
 
 ?>

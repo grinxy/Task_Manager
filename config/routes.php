@@ -16,8 +16,6 @@ $routes = array(
 	'/createTaskOK' => 'Application#createTaskOK',
   '/updateTask' => 'Application#updateTask',
   '/updateTaskData' => 'Application#updateTaskData',
-
-  /*
-     '/deleteTask' => 'Application#deleteTask',*/
+  '/deleteTask' => 'Application#deleteTask'
 
 );

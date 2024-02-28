@@ -44,7 +44,8 @@ class ApplicationController extends Controller
                 'author' => $author,
                 'creationDate' => $creationDate,
                 'status' => $status,
-                'deadline' => $deadline
+                'deadline' => $deadline,
+                'lastEdited' =>""
             ];
 
             $this->taskModel->createTask($newTask);
@@ -84,7 +85,8 @@ class ApplicationController extends Controller
                 'author' => $this->_getParam("author"),
                 'creationDate' => $this->_getParam("creationDate"),
                 'status' => $this->_getParam("status"),
-                'deadline' => $this->_getParam("deadline")
+                'deadline' => $this->_getParam("deadline"),
+                'lastEdited' =>  date_create()->format('Y-m-d')
             ];
 
 

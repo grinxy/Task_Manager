@@ -45,6 +45,9 @@ text-gray-800 md:text-5xl lg:text-6xl dark:text-white">To-Do's App</h1>
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Deadline
                 </th>
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Edited
+                </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action
                 </th>
             </tr>
@@ -75,6 +78,9 @@ text-gray-800 md:text-5xl lg:text-6xl dark:text-white">To-Do's App</h1>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <?php echo $task['deadline']; ?>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <?php echo $task['lastEdited']; ?>
                         </td>
                         <td class=" py-4 whitespace-nowrap">
                             <!-- pasa info del id a través de la URL-->

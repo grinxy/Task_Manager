@@ -25,5 +25,14 @@
         "status": "initialized",
         "deadline": "2024-03-23",
         "lastEdited": "2024-02-28"
+    },
+    {
+        "id": 5,
+        "description": "Acabar el sprint 3 y no morir en el intento",
+        "author": "Me",
+        "creationDate": "2024-02-28",
+        "status": "in process",
+        "deadline": "2024-02-29",
+        "lastEdited": ""
     }
 ]

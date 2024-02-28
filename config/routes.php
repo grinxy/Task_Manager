@@ -10,5 +10,12 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-	'/test' => 'test#index'
+
+	'/' => 'Application#index',  //pantalla inicio --> read
+	'/createTask' => 'Application#createTask',
+	'/createTaskOK' => 'Application#createTaskOK',
+  '/updateTask' => 'Application#updateTask',
+  '/updateTaskData' => 'Application#updateTaskData',
+  '/deleteTask' => 'Application#deleteTask'
+
 );

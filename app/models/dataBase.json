@@ -4,7 +4,7 @@
         "description": "Sa matao",
         "author": "Paco",
         "creationDate": "2024-02-28",
-        "status": "finalized",
+        "status": "in process",
         "deadline": "2024-03-09",
         "lastEdited": "2024-02-28"
     },
@@ -34,5 +34,14 @@
         "status": "in process",
         "deadline": "2024-02-29",
         "lastEdited": ""
+    },
+    {
+        "id": 6,
+        "description": "comprobar permisos json tras pull request a main",
+        "author": "Monica",
+        "creationDate": "2024-02-28",
+        "status": "finalized",
+        "deadline": "2024-02-28",
+        "lastEdited": "2024-02-28"
     }
 ]

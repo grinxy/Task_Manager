@@ -18,21 +18,24 @@ class ApplicationController extends Controller
     public function indexAction()
     {
 
-        
+
         $allTasks = $this->taskModel->listTasks();
         $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
-    
+
     }
 
     public function createTaskAction(): void
     {
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //recoger los datos introducidos en formulario de nueva tarea
             $description = $this->_getParam("description");
             $author = $this->_getParam("author");
             $status = $this->_getParam("status");
             $creationDate = date_create()->format('Y-m-d');
-            $deadline = date_create($_POST["deadline"])->format('Y-m-d');
+            $deadlineDate = date_create($_POST["deadline"]);
+            $deadline = $deadlineDate->format('Y-m-d');
 
 
             $newTask = [
@@ -44,10 +47,10 @@ class ApplicationController extends Controller
                 'deadline' => $deadline
             ];
 
-
             $this->taskModel->createTask($newTask);
-            header("Location: " . $this->_baseUrl() . "/createTaskOK");  //_baseURl clase Controller --> WEB_ROOT
+            header("Location: " . $this->_baseUrl() . "/createTaskOK");
             exit();
+
         }
 
 
@@ -74,13 +77,14 @@ class ApplicationController extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+
             $updatedTask = [
                 'id' => ((int) $this->_getParam("id")),
                 'description' => $this->_getParam("description"),
                 'author' => $this->_getParam("author"),
                 'creationDate' => $this->_getParam("creationDate"),
                 'status' => $this->_getParam("status"),
-                'deadline' => date_create($_POST["deadline"])->format('Y-m-d')
+                'deadline' => $this->_getParam("deadline")
             ];
 
 
@@ -93,10 +97,10 @@ class ApplicationController extends Controller
     {
         $taskId = ((int) $this->_getParam('id'));
         $this->taskModel->deleteTask($taskId);
-      
+
         header("Location: " . $this->_baseUrl());
         exit();
-        
+
     }
 }
 

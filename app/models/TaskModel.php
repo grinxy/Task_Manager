@@ -26,6 +26,17 @@ class TaskModel extends Model
 
     }
 
+    public function searchByNum(int $taskNum) : ?array
+    {
+        $tasks = $this->listTasks();
+        foreach($tasks as $task){
+            if($task['id'] === $taskNum)
+        {
+            return $task;
+        }
+        }
+        return null;
+    }
     public function createTask(array $newTask): void
     {
         $this->listTasks();

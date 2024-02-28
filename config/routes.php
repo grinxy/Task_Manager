@@ -11,11 +11,12 @@
  */
 $routes = array(
 
-	'/' => 'Application#index',  //pantalla inicio --> read
+	'/' => 'Application#index',  
 	'/createTask' => 'Application#createTask',
 	'/createTaskOK' => 'Application#createTaskOK',
   '/updateTask' => 'Application#updateTask',
   '/updateTaskData' => 'Application#updateTaskData',
-  '/deleteTask' => 'Application#deleteTask'
+  '/deleteTask' => 'Application#deleteTask',
+  '/searchTaskByNum' => 'Application#searchTaskByNum'
 
 );

@@ -15,15 +15,21 @@
 leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-white">Update Task</h1>
 
 
-    <div class="w-full md:w-4/5 md:max-w-full mx-auto">
-
-      
-            <div class="p-12 border bg-red-200 border-gray-500 sm:rounded-md">
-                <form action="updateTaskData" method="post" >
+<div class="w-full md:w-4/5 md:max-w-full mx-auto relative">
+        <div class="p-12 border bg-red-200 border-gray-500 sm:rounded-md">
+            <div class="m-2 flex flex-wrap flex-grow justify-end w-full">
+                <div class="absolute top-4 right-4 m-2">
+                    <a href="<?php echo WEB_ROOT; ?>" class="inline-block px-8 mr-28 py-2 border border-black text-sm leading-5 font-medium 
+                        rounded-md text-black bg-gray-300 hover:bg-gray-200 focus:outline-none focus:shadow-outline">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+            <form action="updateTaskData" method="post" accept-charset="UTF-8">
                 <input type="hidden" name="id" value="<?php echo $this->taskData['id']; ?>">
-                    <label class="block mb-6">
-                        <span class="text-gray-700">Task Description</span>
-                        <input type="text" name="description" class="
+                <label class="block mb-6">
+                    <span class="text-gray-700">Task Description</span>
+                    <input type="text" name="description" class="
                     block
                     w-full
                     mt-1
@@ -36,10 +42,10 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
                     focus:ring-indigo-200
                     focus:ring-opacity-50" value="<?php echo $this->taskData['description']; ?>" required />
 
-                    </label>
-                    <label class="block mb-6">
-                        <span class="text-gray-700">Author</span>
-                        <input type="text" name="author" class="
+                </label>
+                <label class="block mb-6">
+                    <span class="text-gray-700">Author</span>
+                    <input type="text" name="author" class="
                     block
                     w-full
                     mt-1
@@ -52,11 +58,11 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
                     focus:ring-indigo-200
                     focus:ring-opacity-50" value="<?php echo $this->taskData['author']; ?>" required />
 
-                    </label>
-                    <input type="hidden" name="creationDate" value="<?php echo $this->taskData['creationDate']; ?>">
-                    <label class="block mb-6">
-                        <span class="text-gray-700">Task Status</span>
-                        <select text="status" name="status" class="
+                </label>
+                <input type="hidden" name="creationDate" value="<?php echo $this->taskData['creationDate']; ?>">
+                <label class="block mb-6">
+                    <span class="text-gray-700">Task Status</span>
+                    <select text="status" name="status" class="
                     block
                     w-full
                     mt-1
@@ -68,24 +74,24 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
                     focus:ring
                     focus:ring-indigo-200
                     focus:ring-opacity-50">
-                            <option value="initialized" <?php echo ($this->taskData['status'] === 'initialized') ? 'selected' : ''; ?>>Initialized</option>
-                            <option value="in process" <?php echo ($this->taskData['status'] === 'in process') ? 'selected' : ''; ?>>In process</option>
-                            <option value="finalized" <?php echo ($this->taskData['status'] === 'finalized') ? 'selected' : ''; ?>>Finalized</option>
+                        <option value="initialized" <?php echo ($this->taskData['status'] === 'initialized') ? 'selected' : ''; ?>>Initialized</option>
+                        <option value="in process" <?php echo ($this->taskData['status'] === 'in process') ? 'selected' : ''; ?>>In process</option>
+                        <option value="finalized" <?php echo ($this->taskData['status'] === 'finalized') ? 'selected' : ''; ?>>Finalized</option>
 
-                        </select>
-                    </label>
-                    <label class="block mb-6">
-                        <span class="text-gray-700">Completion Deadline</span>
+                    </select>
+                </label>
+                <label class="block mb-6">
+                    <span class="text-gray-700">Completion Deadline</span>
 
-                        <div class="relative max-w-sm">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor"
-                                    viewBox="20 20 20 20">
-                                    <path
-                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                </svg>
-                            </div>
-                            <input type="date" name="deadline" class="
+                    <div class="relative max-w-sm">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor"
+                                viewBox="20 20 20 20">
+                                <path
+                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                            </svg>
+                        </div>
+                        <input type="date" min="<?php echo date('Y-m-d'); ?>" name="deadline" class="
                             block
                             w-full
                             mt-1
@@ -98,10 +104,10 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
                             focus:ring-indigo-200
                             focus:ring-opacity-50" value="<?php echo $this->taskData['deadline']; ?>" required />
 
-                        </div>
-                    </label>
-                    <div class="mb-6 flex justify-center items-center ">
-                        <button type="submit" class="
+                    </div>
+                </label>
+                <div class="mb-6 flex justify-center items-center ">
+                    <button type="submit" class="
                     h-20
                     px-20
                     text-white
@@ -112,15 +118,15 @@ leading-none tracking-tight text-gray-800 md:text-5xl lg:text-6xl dark:text-whit
                     focus:shadow-outline
                     hover:bg-red-300
                     ">
-                            Update
+                        Update
 
-                        </button>
-                    </div>
+                    </button>
+                </div>
 
 
-                </form>
-            </div>
-    
+            </form>
+        </div>
+
     </div>
 
 </body>

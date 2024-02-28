@@ -1,11 +1,29 @@
 [
     {
-        "id": 1,
-        "description": "Hola",
-        "author": "Caracola",
+        "id": 2,
+        "description": "Sa matao",
+        "author": "Paco",
         "creationDate": "2024-02-28",
         "status": "finalized",
-        "deadline": "2024-03-06",
+        "deadline": "2024-03-09",
+        "lastEdited": "2024-02-28"
+    },
+    {
+        "id": 3,
+        "description": "Somos sentimientos y tenemos seres humanos",
+        "author": "Mariano R",
+        "creationDate": "2024-02-28",
+        "status": "in process",
+        "deadline": "2024-03-04",
         "lastEdited": ""
+    },
+    {
+        "id": 4,
+        "description": "Eliminar a json y sus chmod 777",
+        "author": "Blancanieves",
+        "creationDate": "2024-02-28",
+        "status": "initialized",
+        "deadline": "2024-03-23",
+        "lastEdited": "2024-02-28"
     }
 ]

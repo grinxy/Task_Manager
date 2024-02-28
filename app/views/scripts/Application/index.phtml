@@ -54,7 +54,7 @@ text-gray-800 md:text-5xl lg:text-6xl dark:text-white">To-Do's App</h1>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
             <?php if ($this->allTasks != null): ?>
-           
+
                 <?php foreach ($this->allTasks as $task): ?>
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
@@ -84,10 +84,10 @@ text-gray-800 md:text-5xl lg:text-6xl dark:text-white">To-Do's App</h1>
                         </td>
                         <td class=" py-4 whitespace-nowrap">
                             <!-- pasa info del id a través de la URL-->
-                            <button
-                                class="px-4 py-2 font-medium text-white bg-red-300 rounded-md hover:bg-red-200 focus:outline-none 
-                                       focus:shadow-outline-blue active:bg-red-200 transition duration-150 ease-in-out">
-                                <a href="updateTask?id=<?php echo $task['id']; ?>">Edit</a></button>
+                            <a href="updateTask?id=<?php echo $task['id']; ?>"
+                                class="inline-block px-4 py-2 font-medium text-white bg-red-300 rounded-md hover:bg-red-200 focus:outline-none focus:shadow-outline-blue active:bg-red-200 transition duration-150 ease-in-out">
+                                Edit
+                            </a>
                             <!-- pasa info del id a través del modal-->
                             <button class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 
                                     focus:outline-none focus:shadow-outline-red active:bg-red-600 
@@ -110,7 +110,8 @@ text-gray-800 md:text-5xl lg:text-6xl dark:text-white">To-Do's App</h1>
                                                 <h1 class="font-bold text-lg mb-2">Delete Task
                                                     <?php echo $task['id'] ?>
                                                 </h1>
-                                                <p class="whitespace-pre-line">Are you sure you want to delete this task? All data wil be lost and cannot be undone.
+                                                <p class="whitespace-pre-line">Are you sure you want to delete this task? All
+                                                    data wil be lost and cannot be undone.
                                                 </p>
                                             </div>
                                         </div>

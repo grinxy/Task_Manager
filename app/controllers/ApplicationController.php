@@ -21,7 +21,7 @@ class ApplicationController extends Controller
 
         $allTasks = $this->taskModel->listTasks();
         $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
-
+       
     }
 
     public function createTaskAction(): void
@@ -62,7 +62,20 @@ class ApplicationController extends Controller
         $this->view->createTaskOK;
     }
 
-
+    public function searchTaskByNumAction() : void
+    {
+        $taskNum = (int)$this->_getParam('taskNumberSearched');
+        $task = $this->taskModel->searchByNum($taskNum);
+        $this->showTaskByNumAction($task);  
+   
+    }
+    public function showTaskByNumAction(?array $task) : void
+    {
+        {
+            $this->view->task = $task; 
+           } 
+    }
+    
     public function updateTaskAction(): void
     {
         $taskId = ((int) $this->_getParam('id'));

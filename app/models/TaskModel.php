@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 class TaskModel extends Model
 {
 
@@ -11,9 +13,6 @@ class TaskModel extends Model
         $this->jsonFile = __DIR__ . "/dataBase.json";
         $this->tasks = [];
         $this->id = $this->generateID();
-
-
-
     }
 
 
@@ -23,17 +22,15 @@ class TaskModel extends Model
 
         $this->tasks = json_decode($dataBase, true);
         return $this->tasks;
-
     }
 
-    public function searchByNum(int $taskNum) : ?array
+    public function searchByNum(int $taskNum): ?array
     {
         $tasks = $this->listTasks();
-        foreach($tasks as $task){
-            if($task['id'] === $taskNum)
-        {
-            return $task;
-        }
+        foreach ($tasks as $task) {
+            if ($task['id'] === $taskNum) {
+                return $task;
+            }
         }
         return null;
     }
@@ -43,15 +40,13 @@ class TaskModel extends Model
         $this->tasks[] = $newTask;
         $jsonFile = json_encode($this->tasks, JSON_PRETTY_PRINT);
         file_put_contents($this->jsonFile, $jsonFile);
-
     }
     public function generateID(): int
     {
         $this->listTasks();
         $lastTask = end($this->tasks);   //coger ultimo objeto que hay en el array
-        $newID = ($lastTask == null)? 1 : ++$lastTask["id"];     // incrementar numero id
+        $newID = ($lastTask == null) ? 1 : ++$lastTask["id"];     // incrementar numero id
         return $newID;
-
     }
 
     public function getTaskData(int $taskId): array
@@ -69,7 +64,7 @@ class TaskModel extends Model
 
 
 
-    public function updateTask(int $taskId, array $updatedTask): void
+    public function updateTask(int $taskId, array $updatedTask): bool
     {
 
         $taskList = $this->listTasks();
@@ -78,30 +73,32 @@ class TaskModel extends Model
                 $taskIndex = $index;
                 $this->tasks[$taskIndex] = $updatedTask;
             }
-
-            $jsonFile = json_encode($this->tasks, JSON_PRETTY_PRINT);
-            file_put_contents($this->jsonFile, $jsonFile);
-
-
         }
+        $jsonFile = json_encode($this->tasks, JSON_PRETTY_PRINT);
+        $result = file_put_contents($this->jsonFile, $jsonFile);
 
+
+        if ($result === false) {
+            return false; // Error acceso al json -> gestionar tema permisos
+        }
+        return true;
     }
 
-    public function deleteTask(int $taskId): void
+    public function deleteTask(int $taskId): bool
     {
         $taskList = $this->listTasks();
         foreach ($taskList as $index => $task) {
             if ($taskId === $task["id"]) {
                 unset($taskList[$index]);
             }
-            
         }
         $this->tasks = array_values($taskList);   // reindexar los elementos del array --> unset borra indice y no reordena
         $jsonFile = json_encode($this->tasks, JSON_PRETTY_PRINT);
-        file_put_contents($this->jsonFile, $jsonFile);
+        $result = file_put_contents($this->jsonFile, $jsonFile);
         $taskList = $this->listTasks();
-
+        if ($result === false) {
+            return false; // Error acceso al json -> gestionar tema permisos
+        }
+        return true;
     }
-} 
-
-?>
+}

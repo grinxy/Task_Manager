@@ -12,7 +12,6 @@ class ApplicationController extends Controller
     {
 
         $this->taskModel = new TaskModel();
-
     }
 
     public function indexAction()
@@ -21,7 +20,7 @@ class ApplicationController extends Controller
 
         $allTasks = $this->taskModel->listTasks();
         $this->view->allTasks = $allTasks;                     //metodo __set en View $this->view['allTasks'] = $allTasks para pasar data del controlador a la vista
-       
+
     }
 
     public function createTaskAction(): void
@@ -45,37 +44,42 @@ class ApplicationController extends Controller
                 'creationDate' => $creationDate,
                 'status' => $status,
                 'deadline' => $deadline,
-                'lastEdited' =>""
+                'lastEdited' => ""
             ];
 
             $this->taskModel->createTask($newTask);
-            header("Location: " . $this->_baseUrl() . "/createTaskOK");
-            exit();
-
+            if (!$this->taskModel->searchByNum($newTask['id'])) {
+                header("Location: " . $this->_baseUrl() . "/taskError");
+                exit();
+            } else {
+                header("Location: " . $this->_baseUrl() . "/createTaskOK");
+                exit();
+            }
         }
-
-
     }
+    public function taskErrorAction(): void
+    {
+        $this->view->taskError;
+    }
+
 
     public function createTaskOKAction(): void
     {
         $this->view->createTaskOK;
     }
 
-    public function searchTaskByNumAction() : void
+    public function searchTaskByNumAction(): void
     {
         $taskNum = (int)$this->_getParam('taskNumberSearched');
         $task = $this->taskModel->searchByNum($taskNum);
-        $this->showTaskByNumAction($task);  
-   
+        $this->showTaskByNumAction($task);
     }
-    public function showTaskByNumAction(?array $task) : void
-    {
-        {
-            $this->view->task = $task; 
-           } 
+    public function showTaskByNumAction(?array $task): void
+    { {
+            $this->view->task = $task;
+        }
     }
-    
+
     public function updateTaskAction(): void
     {
         $taskId = ((int) $this->_getParam('id'));
@@ -83,7 +87,6 @@ class ApplicationController extends Controller
         $taskData = $this->taskModel->getTaskData($taskId);
 
         $this->view->taskData = $taskData;
-
     }
 
     public function updateTaskDataAction(): void
@@ -103,22 +106,21 @@ class ApplicationController extends Controller
             ];
 
 
-            $this->taskModel->updateTask($updatedTask['id'], $updatedTask);
-
-
+            if (!$this->taskModel->updateTask($updatedTask['id'], $updatedTask)) {
+                header("Location: " . $this->_baseUrl() . "/taskError");
+                exit();
+            }
         }
     }
     public function deleteTaskAction(): void
     {
         $taskId = ((int) $this->_getParam('id'));
-        $this->taskModel->deleteTask($taskId);
-
+        if(!$this->taskModel->deleteTask($taskId))
+        {   header("Location: " . $this->_baseUrl() . "/taskError");
+            exit();
+        }else{
         header("Location: " . $this->_baseUrl());
         exit();
-
     }
 }
-
-
-
-
+}

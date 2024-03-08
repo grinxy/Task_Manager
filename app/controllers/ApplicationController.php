@@ -72,13 +72,15 @@ class ApplicationController extends Controller
     {
         $taskNum = (int)$this->_getParam('taskNumberSearched');
         $task = $this->taskModel->searchByNum($taskNum);
-        $this->showTaskByNumAction($task);
+
+
+        $this->showTaskByNumAction($task, $taskNum);
     }
-    public function showTaskByNumAction(?array $task): void
-    { {
+    public function showTaskByNumAction(?array $task, int $taskNum): void
+    {
             $this->view->task = $task;
+            $this->view->taskNum = $taskNum;
         }
-    }
 
     public function updateTaskAction(): void
     {

@@ -66,6 +66,7 @@ class ApplicationController extends Controller
     {
         $taskNum = (int)$this->_getParam('taskNumberSearched');
         $task = $this->taskModel->searchByNum($taskNum);
+<<<<<<< Updated upstream
         $this->showTaskByNumAction($task);  
    
     }
@@ -74,6 +75,15 @@ class ApplicationController extends Controller
         {
             $this->view->task = $task; 
            } 
+=======
+        $this->showTaskByNumAction($task, $taskNum);
+    }
+    public function showTaskByNumAction(?array $task, int $taskNum): void
+    { {
+            $this->view->task = $task;
+            $this->view->taskNum = $taskNum;
+        }
+>>>>>>> Stashed changes
     }
     
     public function updateTaskAction(): void

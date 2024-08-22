@@ -1,4 +1,16 @@
 # Task Manager App
+
+## Overview
+The Task Manager App is a PHP-based application designed to help users manage and track their tasks efficiently. It provides a simple interface to create, view, update, and delete tasks. The app is structured using the MVC (Model-View-Controller) design pattern, ensuring a clean separation between the application's data, business logic, and user interface.
+
+## Features
+Task Creation: Add new tasks with details such as title, description, and due date.
+Task Management: View, edit, and delete existing tasks.
+Task Filtering: Filter tasks based on their status (e.g., completed, pending).
+User Authentication: Secure login and registration (if applicable).
+Responsive Design: Accessible on various devices and screen sizes.
+
+## Project Structure
 Main structure of php project. Folders / files:
 - **app**
   - **controllers**
